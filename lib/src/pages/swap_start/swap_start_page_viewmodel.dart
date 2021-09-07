@@ -25,7 +25,7 @@ class SwapStartPageModel extends BaseViewModel {
   bool scanNew = false;
   bool batteryStatus = false;
 
-  double p = 0;
+  double power = 0;
   double usedAh = 0;
   double usedWh = 0;
   double price = 0;
@@ -121,11 +121,11 @@ class SwapStartPageModel extends BaseViewModel {
     double _m = double.parse(_meterVoltage);
 
     double _p = 1 - ((NOMINAL_VOLTAGE - _m) / BATTERY_FACTOR);
-    double _usedAh = BATTERY_AH * (1 - p);
+    double _usedAh = BATTERY_AH * (1 - power);
     double _usedWh = _usedAh * 12;
     double _price = _usedWh * 0.882;
 
-    this.p = _p;
+    this.power = _p;
     this.usedAh = _usedAh;
     this.usedWh = _usedWh;
     this.price = _price;

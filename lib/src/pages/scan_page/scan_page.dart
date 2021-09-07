@@ -1,3 +1,4 @@
+import 'package:ampersand_app/src/widgets/qr_code_scanner.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart' as stacked;
 import 'package:qr_code_scanner/qr_code_scanner.dart';
@@ -17,24 +18,8 @@ class ScanPage extends StatelessWidget {
           appBar: AppBar(
             title: Text("Ampersand"),
           ),
-          body: Column(
-            children: [
-              Expanded(
-                flex: 5,
-                child: QRView(
-                  key: model.qrKey,
-                  onQRViewCreated: (controller) =>
-                      model.onQRViewCreated(context, controller),
-                ),
-              ),
-              Expanded(
-                flex: 1,
-                child: Center(
-                  child: Text(model.description),
-                ),
-              )
-            ],
-          ),
+          body: QrCodeScanner(model.description, model.qrKey,
+              (controller) => model.onQRViewCreated(context, controller)),
         );
       },
       viewModelBuilder: () => ScanPageViewModel(description),
