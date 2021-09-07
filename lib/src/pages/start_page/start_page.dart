@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart' as stacked;
 
-import '../app_theme.dart';
-import './start_page_viewmodel.dart';
+import 'start_page_viewmodel.dart';
 
 class StartPage extends StatelessWidget {
   @override
@@ -11,12 +10,29 @@ class StartPage extends StatelessWidget {
       builder: (context, model, child) {
         return Scaffold(
           key: model.key,
-          appBar: AppTopBar(model, model.lottery, model.fields),
-          body: Text("Hello Ampersand"),
+          appBar: AppBar(
+            title: Text("Ampersand"),
+          ),
+          body: Container(
+            margin: const EdgeInsets.all(10.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                ElevatedButton(
+                  onPressed: () {
+                    model.startSwap(context);
+                  },
+                  child: Text("Start Battery Swap"),
+                ),
+                SizedBox(
+                  height: 10.0,
+                ),
+              ],
+            ),
+          ),
         );
       },
       viewModelBuilder: () => StartPageViewModel(),
-      onModelReady: (model) => model.initialize(),
       fireOnModelReadyOnce: false,
     );
   }

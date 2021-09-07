@@ -28,13 +28,13 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
-  qr_code_scanner: ^0.5.2
   get: ^4.3.8
   auto_route: ^2.3.0
   stacked: ^2.2.5
   stacked_services: ^0.8.13
   get_it: ^7.2.0
   injectable: ^1.5.0
+  qr_code_scanner: ^0.5.2
 
 
 dev_dependencies:

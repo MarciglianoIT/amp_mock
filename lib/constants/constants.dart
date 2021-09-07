@@ -1,0 +1,3 @@
+const BATTERY_AH = 40;
+const NOMINAL_VOLTAGE = 6 * 2.12;
+const BATTERY_FACTOR = 0.72;
